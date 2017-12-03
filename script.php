@@ -248,14 +248,4 @@ while ($donnees = $response->fetch())
 	echo '<br />';
 }
 
-echo '<br />';
-echo 'Les produits qui ont au moins 2 tags: <br />';
-$response = $bdd->query('SELECT DISTINCT(produits.nom), COUNT(nom) as nb FROM produits WHERE produits.id IN (SELECT produit FROM produit_tag GROUP BY produit) GROUP BY nom');
-while ($donnees = $response->fetch())
-{
-	echo $donnees['nom'];
-	echo $donnees['nb'];
-	echo '<br />';
-}
-
 ?>
